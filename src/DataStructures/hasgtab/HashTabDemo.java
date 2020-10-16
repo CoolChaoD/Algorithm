@@ -5,10 +5,7 @@ import java.util.Scanner;
 public class HashTabDemo {
     public static void main(String[] args) {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> test
+        //test
         //创建哈希表
         HashTab hastab=new HashTab(7);
         //写一个简单的菜单
@@ -44,10 +41,7 @@ public class HashTabDemo {
 
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> test
     }
 }
 
