@@ -172,5 +172,6 @@ class BinaryTree {
             }
             System.out.println(this);
         }
+        //前序查找
     }
 
