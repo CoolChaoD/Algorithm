@@ -3,10 +3,7 @@ package DataStructures.bitree;
 import java.util.Arrays;
 
 
-//first test
-//second test
-//第三次提交
-//第四次修改
+
 public class BinaryTreeDemo {
     public static void main(String[] args) {
         //首先需要创建一颗二叉树
@@ -194,5 +191,27 @@ class BinaryTree {
             }
             return  resNode;
         }
+
+        //中序查找
+        public HeroNode infixOrderSearch(int no){
+            //1.判断当前节点的左子节点是否为空，如果不是空则递归中序查找
+            HeroNode resNode=null;
+            if(this.left!=null){
+                resNode =this.left.infixOrderSearch(no);
+            }
+            if(resNode!=null){ //如果不为空，说明在左子节点找到的相应的数据，因此返回
+                return resNode;
+            }
+            //2.判断当前节点的值是否等于要查找的值
+            if(this.no==no){
+                return this;
+            }
+            //3.再判断右子节点的值是否为空，如果不是空那么递归中序遍历右子节点
+            if(this.right!=null){
+                resNode=this.right.infixOrderSearch(no);
+            }
+            return resNode;
+        }
+
     }
 
