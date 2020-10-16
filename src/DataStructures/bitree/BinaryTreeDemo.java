@@ -15,8 +15,6 @@ public class BinaryTreeDemo {
         HeroNode node4 =new HeroNode(4,"林冲");
         HeroNode node5 =new HeroNode(5,"关胜");
 
-
-
         //说明先手动创建该二叉树，后面学习递归的方式创建二叉树
         root.setLeft(node2);
         root.setRight(node3);
@@ -76,6 +74,32 @@ class BinaryTree {
         }
     }
 
+
+    //查找算法
+    //1.前序查找
+    public HeroNode preOrderSearch(int no){
+        if(this.root!=null){
+           return  this.root.preOrdersearch(no);
+        }else{
+            return null;
+        }
+    }
+    //2.中序查找算法
+    public HeroNode infixOrderSearch(int no){
+        if(this.root!=null){
+            return this.root.infixOrderSearch(no);
+        }else{
+            return null;
+        }
+    }
+    //3.后序查找算法
+    public HeroNode postOrderSearch(int no){
+        if(this.root!=null){
+            return  this.root.postOrderSearch(no);
+        }else{
+            return null;
+        }
+    }
 }
     //先创建HeroNode节点
     class HeroNode {
