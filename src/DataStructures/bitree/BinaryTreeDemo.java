@@ -22,21 +22,21 @@ public class BinaryTreeDemo {
         node3.setLeft(node5);
         binarytree.setRoot(root);
 
-        //测试前序遍历
-        System.out.println("前序遍历");
-        binarytree.preOrder();
+//        //测试前序遍历
+//        System.out.println("前序遍历");
+//        binarytree.preOrder();
+//
+//        //测试中序遍历
+//        System.out.println("中序遍历");
+//        binarytree.infixOrder();
+//
+//        //测试后序遍历
+//        System.out.println("后序遍历");
+//        binarytree.postOrder();
 
-        //测试中序遍历
-        System.out.println("中序遍历");
-        binarytree.infixOrder();
 
-        //测试后序遍历
-        System.out.println("后序遍历");
-        binarytree.postOrder();
-
-
-//        //三种查找测试
-//        //1.前序查找
+        //三种查找测试
+//        //1.前序查找 4次
 //        System.out.println("前序遍历方式~~");
 //        HeroNode resNode=binarytree.preOrderSearch(5);
 //        if(resNode !=null){
@@ -44,6 +44,26 @@ public class BinaryTreeDemo {
 //        }else{
 //            System.out.printf("没有找到 no=%d 的英雄",5);
 //        }
+
+//        //2.中序遍历 4次
+//        System.out.println("中序遍历方式~~");
+//        HeroNode resNode2=binarytree.infixOrderSearch(5);
+//        if(resNode2 !=null){
+//            System.out.printf("找到了，信息为 no=%d name=%s",resNode2.getNo(),resNode2.getName());
+//        }else{
+//            System.out.printf("没有找到 no=%d 的英雄",5);
+//        }
+
+//
+        //3.后序遍历 4次
+        System.out.println("后序遍历方式~~");
+        HeroNode resNode3=binarytree.postOrderSearch(5);
+        if(resNode3 !=null){
+            System.out.printf("找到了，信息为 no=%d name=%s",resNode3.getNo(),resNode3.getName());
+        }else{
+            System.out.printf("没有找到 no=%d 的英雄",5);
+        }
+
     }
 }
 
@@ -229,6 +249,7 @@ class BinaryTree {
 
         //中序查找
         public HeroNode infixOrderSearch(int no){
+
             //1.判断当前节点的左子节点是否为空，如果不是空则递归中序查找
             HeroNode resNode=null;
             if(this.left!=null){
@@ -238,6 +259,7 @@ class BinaryTree {
                 return resNode;
             }
             //2.判断当前节点的值是否等于要查找的值
+            System.out.println("进入中序查找");
             if(this.no==no){
                 return this;
             }
@@ -250,6 +272,7 @@ class BinaryTree {
 
         //后序遍历查找
         public HeroNode postOrderSearch(int no){
+
             //1.先判断当前节点的左子节点是否为空，如果不为空则个递归查找
             HeroNode resNode=null;
             if(this.left!=null){
@@ -265,6 +288,7 @@ class BinaryTree {
             if(this.right!=null){
                 return resNode;
             }
+            System.out.println("进入后序查找");
             //3.如果左右子树都没找到，就开始查找当前节点
             if(this.no==no){
                 return  this;
