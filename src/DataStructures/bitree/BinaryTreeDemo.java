@@ -173,5 +173,26 @@ class BinaryTree {
             System.out.println(this);
         }
         //前序查找
+        public HeroNode preOrdersearch(int no){
+            //比较当前节点是不是要查找的节点
+            if(this.no==no){
+                return this;
+            }
+            //1.判断当前节点的左子节点是否为空，如果不是空，则递归前序查找
+            //2.如果左递归前序查找，找到节点则返回
+            HeroNode resNode =null;
+            if(this.left!=null){
+                resNode=this.left.preOrdersearch(no);
+            }
+            if(resNode!=null){ //说明左子树已经找到了节点
+                return resNode;
+            }
+            //1.左递归其前序查找，找到节点在，则返回，否则继续判断
+            //2.当前节点的右子节点是否为空，如果不为空，则继续向右递归查找
+            if(this.right!=null){
+                resNode=this.right.preOrdersearch(no);
+            }
+            return  resNode;
+        }
     }
 
