@@ -34,6 +34,16 @@ public class BinaryTreeDemo {
         System.out.println("后序遍历");
         binarytree.postOrder();
 
+
+//        //三种查找测试
+//        //1.前序查找
+//        System.out.println("前序遍历方式~~");
+//        HeroNode resNode=binarytree.preOrderSearch(5);
+//        if(resNode !=null){
+//            System.out.printf("找到了，信息为 no=%d name=%s",resNode.getNo(),resNode.getName());
+//        }else{
+//            System.out.printf("没有找到 no=%d 的英雄",5);
+//        }
     }
 }
 
@@ -195,6 +205,7 @@ class BinaryTree {
         }
         //前序查找
         public HeroNode preOrdersearch(int no){
+            System.out.println("进入前序遍历");
             //比较当前节点是不是要查找的节点
             if(this.no==no){
                 return this;
