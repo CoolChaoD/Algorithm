@@ -213,5 +213,29 @@ class BinaryTree {
             return resNode;
         }
 
+        //后序遍历查找
+        public HeroNode postOrderSearch(int no){
+            //1.先判断当前节点的左子节点是否为空，如果不为空则个递归查找
+            HeroNode resNode=null;
+            if(this.left!=null){
+                resNode=this.left.postOrderSearch(no);
+            }
+            if(resNode!=null){ //说明在左子节点已经找到
+                return resNode;
+            }
+            //2.然后再判断子节点是否为空，如果不为空，则递归查找右子节点
+            if(this.right!=null){
+                resNode=this.right.postOrderSearch(no);
+            }
+            if(this.right!=null){
+                return resNode;
+            }
+            //3.如果左右子树都没找到，就开始查找当前节点
+            if(this.no==no){
+                return  this;
+            }
+            return resNode;
+        }
+
     }
 
