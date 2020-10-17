@@ -1,4 +1,4 @@
-package DataStructures.hasgtab;
+package DataStructures.hashtab;
 
 import java.util.Scanner;
 
