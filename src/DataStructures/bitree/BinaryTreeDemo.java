@@ -306,7 +306,6 @@ class BinaryTree {
 
         //中序查找
         public HeroNode infixOrderSearch(int no){
-
             //1.判断当前节点的左子节点是否为空，如果不是空则递归中序查找
             HeroNode resNode=null;
             if(this.left!=null){
