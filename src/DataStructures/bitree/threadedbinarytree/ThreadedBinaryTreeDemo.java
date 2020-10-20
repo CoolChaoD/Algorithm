@@ -32,15 +32,25 @@ class BinaryTree {
         }
         //1.先线索化左子树
         threadedNodes(node.getLeft());
-        //2.线索化当前节点
+        //2.线索化当前节点[有难度]
          //处理当前节点的前驱节点
+        if(node.getLeft()==null){
+            //让当前节点饿做指针指向前驱节点
+            node.setLeft(pre);
+            //修改当前节点的左指针类型,指向前驱节点
+            //以8号节点的来理解
+            //8节点的.left=null
+            node.setLeftType(1);
 
+        }
+
+        //处理后继节点
+        if(pre.getRight()==null&&pre!=null){
+            pre.setRight(node);
+            pre.setRightType(1);
+        }
         //3.再线索化右子树
         threadedNodes(node.getRight());
-
-
-
-
     }
 
 
@@ -126,6 +136,7 @@ class HeroNode {
     //1.如果lefttype==0则代表指向右子树，如果是1表示指向后继节点
     private int leftType;
     private int rightType;
+
 
     public int getLeftType() {
         return leftType;
