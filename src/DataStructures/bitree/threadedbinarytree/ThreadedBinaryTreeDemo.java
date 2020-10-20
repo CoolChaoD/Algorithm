@@ -12,17 +12,13 @@ public class ThreadedBinaryTreeDemo {
 //定义一个ThreadedBinaryTree 二叉树
 class BinaryTree {
     private HeroNode root;
-
     //为了实现线索化，需要创建要给当前节点的前驱节点的指针
     //pre在递归进行线索化时候，pre总是保留前一个节点
-    private HeroNode pre=null;
-
-
+    private HeroNode pre=null;  //是一个全局的函数
 
     public void setRoot(HeroNode root) {
         this.root = root;
     }
-
     //编写对二叉树进行中序线索化的方法
     //node: 就是当前需要线索化的节点
     public void threadedNodes(HeroNode node){
@@ -35,20 +31,20 @@ class BinaryTree {
         //2.线索化当前节点[有难度]
          //处理当前节点的前驱节点
         if(node.getLeft()==null){
-            //让当前节点饿做指针指向前驱节点
+            //让当前节点左指针指向前驱节点
             node.setLeft(pre);
             //修改当前节点的左指针类型,指向前驱节点
             //以8号节点的来理解
             //8节点的.left=null
             node.setLeftType(1);
-
         }
-
         //处理后继节点
         if(pre.getRight()==null&&pre!=null){
             pre.setRight(node);
             pre.setRightType(1);
         }
+        //！每处理一个节点后让当前节点是下一个节点的前驱节点
+        pre=node;
         //3.再线索化右子树
         threadedNodes(node.getRight());
     }
