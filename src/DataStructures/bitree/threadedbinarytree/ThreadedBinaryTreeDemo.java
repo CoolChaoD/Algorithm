@@ -4,17 +4,47 @@ package DataStructures.bitree.threadedbinarytree;
 public class ThreadedBinaryTreeDemo {
     public static void main(String[] args) {
 
+
+        HeroNode root = new HeroNode(1,"宋江");
+        HeroNode node2 =new HeroNode(3,"吴用");
+        HeroNode node3 =new HeroNode(6,"卢俊义");
+        HeroNode node4 =new HeroNode(8,"林冲");
+        HeroNode node5 =new HeroNode(10,"关胜");
+        HeroNode node6 =new HeroNode(14,"董超");
+
+
+        //二叉树后面递归创建,现在先手动创建
+        root.setLeft(node2);
+        root.setRight(node3);
+        node2.setLeft(node4);
+        node2.setRight(node5);
+        node3.setLeft(node6);
+
+        //测试线索化
+        ThreadedBinaryTree threadedBinaryTree =new ThreadedBinaryTree();
+        threadedBinaryTree.setRoot(root);
+        threadedBinaryTree.threadedNodes();
+
+        //测试：以10号节点来车测试
+        HeroNode leftNode =node5.getLeft();
+        System.out.println("10号节点的前驱节点是：="+leftNode);
+
+
+
     }
 }
 
 
-
 //定义一个ThreadedBinaryTree 二叉树
-class BinaryTree {
+class ThreadedBinaryTree {
     private HeroNode root;
     //为了实现线索化，需要创建要给当前节点的前驱节点的指针
     //pre在递归进行线索化时候，pre总是保留前一个节点
     private HeroNode pre=null;  //是一个全局的函数
+    //重载thrededNodes的方法
+    public void threadedNodes(){
+        this.threadedNodes(root);
+    }
 
     public void setRoot(HeroNode root) {
         this.root = root;
@@ -39,7 +69,7 @@ class BinaryTree {
             node.setLeftType(1);
         }
         //处理后继节点
-        if(pre.getRight()==null&&pre!=null){
+        if(pre!=null&&pre.getRight()==null){
             pre.setRight(node);
             pre.setRightType(1);
         }
@@ -64,7 +94,6 @@ class BinaryTree {
         }else{
             System.out.println("空树，不能删除~");
         }
-
     }
     //前序遍历
     public void preOrder() {
@@ -73,7 +102,6 @@ class BinaryTree {
         } else {
             System.out.println("二叉树为空，无法遍历");
         }
-
     }
     //中序遍历
     public void infixOrder() {
